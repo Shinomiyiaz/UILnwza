@@ -885,16 +885,18 @@ function lib:Window(name,description)
                         drop:Set(vv)
                         return
                     end)
-                    game:GetService("RunService").Stepped:Connect(function()
-                        if multi and drop:isSelected(vv) or drop.values[1] == vv then
-                            ItemButton.BackgroundTransparency = 0.25
-                            ItemButton.BackgroundColor3 = Color3.fromRGB(225,225,225)
-                            Check.ImageTransparency = 0.25
-                        else
-                            ItemButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
-                            ItemButton.BackgroundTransparency = 0
-                            Check.ImageTransparency = 1
-                        end
+                    task.spawn(function()
+                        game:GetService("RunService").Stepped:Connect(function()
+                            if multi and drop:isSelected(vv) or drop.values[1] == vv then
+                                ItemButton.BackgroundTransparency = 0.25
+                                ItemButton.BackgroundColor3 = Color3.fromRGB(225,225,225)
+                                Check.ImageTransparency = 0.25
+                            else
+                                ItemButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
+                                ItemButton.BackgroundTransparency = 0
+                                Check.ImageTransparency = 1
+                            end
+                        end)
                     end)
                 end
                 for i,v in next,option do
@@ -963,16 +965,18 @@ function lib:Window(name,description)
                         drop:Set(v)
                         return
                     end)
-                    game:GetService("RunService").Stepped:Connect(function()
-                        if multi and drop:isSelected(v) or drop.values[1] == v then
-                            ItemButton.BackgroundTransparency = 0.25
-                            ItemButton.BackgroundColor3 = Color3.fromRGB(225,225,225)
-                            Check.ImageTransparency = 0.25
-                        else
-                            ItemButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
-                            ItemButton.BackgroundTransparency = 0
-                            Check.ImageTransparency = 1
-                        end
+                    task.spawn(function()
+                        game:GetService("RunService").Stepped:Connect(function()
+                            if multi and drop:isSelected(v) or drop.values[1] == v then
+                                ItemButton.BackgroundTransparency = 0.25
+                                ItemButton.BackgroundColor3 = Color3.fromRGB(225,225,225)
+                                Check.ImageTransparency = 0.25
+                            else
+                                ItemButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
+                                ItemButton.BackgroundTransparency = 0
+                                Check.ImageTransparency = 1
+                            end
+                        end)
                     end)
                 end
                 DropFrame.MouseButton1Click:Connect(function()
