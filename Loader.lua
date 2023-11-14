@@ -893,7 +893,7 @@ function lib:Window(name,description)
                     end
                 end
             end
-            function main:Slider(text,min,max,set,callback)\
+            function main:Slider(text,min,max,set,callback)
                 if tonumber(set) > tonumber(max) then
                     set = (max)
                 end                
