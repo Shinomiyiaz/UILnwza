@@ -887,13 +887,13 @@ function lib:Window(name,description)
                     end)
                     game:GetService("RunService").Stepped:Connect(function()
                         if multi and drop:isSelected(vv) or drop.values[1] == vv then
-                            ItemButton.BackgroundTransparency = 0.25
-                            ItemButton.BackgroundColor3 = Color3.fromRGB(225,225,255)
-                            Check.ImageTransparency = 1
-                        else
-                            ItemButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
                             ItemButton.BackgroundTransparency = 0
+                            ItemButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
                             Check.ImageTransparency = 0.25
+                        else
+                            ItemButton.BackgroundColor3 = Color3.fromRGB(225,225,225)
+                            ItemButton.BackgroundTransparency = 0.25
+                            Check.ImageTransparency = 1
                         end
                     end)
                 end
@@ -972,13 +972,13 @@ function lib:Window(name,description)
                     end)
                     game:GetService("RunService").Stepped:Connect(function()
                         if multi and drop:isSelected(v) or drop.values[1] == v then
-                            ItemButton.BackgroundTransparency = 0.25
-                            ItemButton.BackgroundColor3 = Color3.fromRGB(225,225,255)
-                            Check.ImageTransparency = 1
-                        else
-                            ItemButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
                             ItemButton.BackgroundTransparency = 0
+                            ItemButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
                             Check.ImageTransparency = 0.25
+                        else
+                            ItemButton.BackgroundColor3 = Color3.fromRGB(225,225,225)
+                            ItemButton.BackgroundTransparency = 0.25
+                            Check.ImageTransparency = 1
                         end
                     end)
                 end
