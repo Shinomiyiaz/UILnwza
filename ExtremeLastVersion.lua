@@ -1199,6 +1199,7 @@ function lib:Window(name,description)
                 TextboxTitle.Text = text
                 TextboxTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
                 TextboxTitle.TextSize = 10.000
+                TextboxTitle.TextWrapped = true
                 TextboxTitle.TextTransparency = 0.250
                 TextboxTitle.TextXAlignment = Enum.TextXAlignment.Left
                 TextboxTitle.ClipsDescendants = true
