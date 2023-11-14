@@ -883,7 +883,6 @@ function lib:Window(name,description)
                             return
                         end
                         drop:Set(vv)
-                        return
                         if multi and drop:isSelected(vv) or drop.values[1] == vv then
                             ItemButton.BackgroundTransparency = 0.25
                             Check.ImageTransparency = 1
@@ -891,6 +890,7 @@ function lib:Window(name,description)
                             ItemButton.BackgroundTransparency = 0
                             Check.ImageTransparency = 0.25
                         end
+                        return
                     end)
                 end
                 for i,v in next,option do
@@ -957,7 +957,6 @@ function lib:Window(name,description)
                             return
                         end
                         drop:Set(v)
-                        return
                         if multi and drop:isSelected(v) or drop.values[1] == v then
                             ItemButton.BackgroundTransparency = 0.25
                             Check.ImageTransparency = 1
@@ -965,6 +964,7 @@ function lib:Window(name,description)
                             ItemButton.BackgroundTransparency = 0
                             Check.ImageTransparency = 0.25
                         end
+                        return
                     end)
                 end
                 DropFrame.MouseButton1Click:Connect(function()
