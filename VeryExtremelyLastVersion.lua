@@ -757,7 +757,7 @@ function lib:Window(name,description)
                 Items.Position = UDim2.new(0, 0, 0, 30)
                 Items.Size = UDim2.new(1, 0, 0, 25)
                 Items.CanvasSize = UDim2.new(0, 0, 0, 0)
-                Items.ScrollBarThickness = 0
+                Items.ScrollBarThickness = 3
 
                 local UIListLayout_3 = Instance.new("UIListLayout")
                 UIListLayout_3.Parent = Items
@@ -806,6 +806,7 @@ function lib:Window(name,description)
                         DropTitle.Text = text.." : ".."N/A"
                     end
                     Dropdown.Size = UDim2.new(1,-10,0,25)
+                    Items.Size = UDim2.new(1,-10,0,25)
                     TweenService:Create(
                         DropImage,
                         TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -883,15 +884,14 @@ function lib:Window(name,description)
                         end
                         drop:Set(vv)
                         return
+                        if multi and drop:isSelected(vv) or drop.values[1] == vv then
+                            ItemButton.BackgroundTransparency = 0.25
+                            Check.ImageTransparency = 1
+                        else
+                            ItemButton.BackgroundTransparency = 0
+                            Check.ImageTransparency = 0.25
+                        end
                     end)
-                    if multi and drop:isSelected(vv) or drop.values[1] == vv then
-                        ItemButton.BackgroundTransparency = 0.25
-                        Check.ImageTransparency = 1
-                    else
-                        ItemButton.BackgroundTransparency = 0
-                        Check.ImageTransparency = 0.25
-                    end
-
                 end
                 for i,v in next,option do
                     count = count + 1
@@ -939,6 +939,7 @@ function lib:Window(name,description)
                     UIPadding_4.PaddingLeft = UDim.new(0, 10)
 
                     Items.CanvasSize = UDim2.new(0,0,0,UIListLayout_3.AbsoluteContentSize.Y)
+                    Items.Size = UDim2.new(1,-10,0,DropSize)
 
                     ItemButton.MouseButton1Click:Connect(function()
                         if multi then
@@ -957,18 +958,18 @@ function lib:Window(name,description)
                         end
                         drop:Set(v)
                         return
+                        if multi and drop:isSelected(v) or drop.values[1] == v then
+                            ItemButton.BackgroundTransparency = 0.25
+                            Check.ImageTransparency = 1
+                        else
+                            ItemButton.BackgroundTransparency = 0
+                            Check.ImageTransparency = 0.25
+                        end
                     end)
-                    if multi and drop:isSelected(v) or drop.values[1] == v then
-                        ItemButton.BackgroundTransparency = 0.25
-                        Check.ImageTransparency = 1
-                    else
-                        ItemButton.BackgroundTransparency = 0
-                        Check.ImageTransparency = 0.25
-                    end
                 end
                 DropFrame.MouseButton1Click:Connect(function()
                     if dropclicked == false then
-                        Dropdown.Size = UDim2.new(1,-10,0,DropSize)
+                        Dropdown.Size = UDim2.new(1,-10,0,DropSize + 30)
                         TweenService:Create(
                             DropImage,
                             TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
