@@ -646,7 +646,7 @@ function lib:Window(name,description)
                     TweenService:Create(
                         Image,
                         TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                        {ImageColor3 = Color3.fromRGB(62, 214, 54)}
+                        {BackgroundColor3 = Color3.fromRGB(62, 214, 54)}
                     ):Play()
                     pcall(callback,istoggled)
                 end
@@ -661,7 +661,7 @@ function lib:Window(name,description)
                         TweenService:Create(
                             Image,
                             TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                            {ImageColor3 = Color3.fromRGB(62, 214, 54)}
+                            {BackgroundColor3 = Color3.fromRGB(62, 214, 54)}
                         ):Play()
                     else
                         TweenService:Create(
@@ -672,7 +672,7 @@ function lib:Window(name,description)
                         TweenService:Create(
                             Image,
                             TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                            {ImageColor3 = Color3.fromRGB(214, 75, 50)}
+                            {BackgroundColor3 = Color3.fromRGB(214, 75, 50)}
                         ):Play()
                     end
                     istoggled = not istoggled
