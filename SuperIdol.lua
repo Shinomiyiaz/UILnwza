@@ -828,9 +828,9 @@ function lib:Window(name,description)
                     elseif count == 2 then
                         DropSize = 50
                     elseif count == 3 then
-                        DropSize = 75
+                        DropSize = 50
                     elseif count > 3 then
-                        DropSize = 100
+                        DropSize = 75
                     end
     
                     Items.Size = UDim2.new(1,0,0,DropSize)
@@ -979,7 +979,7 @@ function lib:Window(name,description)
                 end
                 DropFrame.MouseButton1Click:Connect(function()
                     if dropclicked == false then
-                        Dropdown.Size = UDim2.new(1,-10,0,DropSize + 5)
+                        Dropdown.Size = UDim2.new(1,-10,0,DropSize + 30)
                         TweenService:Create(
                             DropImage,
                             TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
