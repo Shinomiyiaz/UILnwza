@@ -757,7 +757,7 @@ function lib:Window(name,description)
                 Items.Position = UDim2.new(0, 0, 0, 30)
                 Items.Size = UDim2.new(1, 0, 0, 25)
                 Items.CanvasSize = UDim2.new(0, 0, 0, 0)
-                Items.ScrollBarThickness = 3
+                Items.ScrollBarThickness = 0
 
                 local UIListLayout_3 = Instance.new("UIListLayout")
                 UIListLayout_3.Parent = Items
@@ -1004,7 +1004,7 @@ function lib:Window(name,description)
                     Items.CanvasSize = UDim2.new(0,0,0,UIListLayout_3.AbsoluteContentSize.Y)
                     dropclicked = not dropclicked
                 end)
-
+                return drop
             end
             function main:Slider(text,min,max,set,callback)
                 if tonumber(set) > tonumber(max) then
