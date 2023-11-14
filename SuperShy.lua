@@ -150,7 +150,7 @@ function lib:Window(name,description)
     Desc.BackgroundTransparency = 1.000
     Desc.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Desc.BorderSizePixel = 0
-    Desc.Position = UDim2.new(0, 14, 0.0670000017, 5)
+    Desc.Position = UDim2.new(0, 21, 0, 25)
     Desc.Size = UDim2.new(0, 208, 0, 20)
     Desc.Font = Enum.Font.GothamMedium
     Desc.Text = "[ "..description.." ]" or "[ 2 Years Anniversary Version ]"
@@ -979,7 +979,7 @@ function lib:Window(name,description)
                 end
                 DropFrame.MouseButton1Click:Connect(function()
                     if dropclicked == false then
-                        Dropdown.Size = UDim2.new(1,-10,0,DropSize + 30)
+                        Dropdown.Size = UDim2.new(1,-10,0,DropSize + 5)
                         TweenService:Create(
                             DropImage,
                             TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
