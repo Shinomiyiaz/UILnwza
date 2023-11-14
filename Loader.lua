@@ -1,4 +1,4 @@
-do local ui = game.CoreGui:FindFirstChild("Screen") if ui then ui:Destroy() end end
+do local ui = game.CoreGui:FindFirstChild("ScreenLnw") if ui then ui:Destroy() end end
 
 local UIS = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -67,7 +67,7 @@ function lib:Window(name,description)
     local uiclosed = false
 
     local Screen = Instance.new("ScreenGui")
-    Screen.Name = "Screen"
+    Screen.Name = "ScreenLnw"
     Screen.Parent = game.CoreGui
     
     local Main = Instance.new("Frame")
@@ -1126,11 +1126,11 @@ function lib:Window(name,description)
     return tab
 end
 
-local win = lib:Window("Maru Hub","[ New UI Version]")
+local win = lib:Window("Maru Hub","New UI Version")
 local tab = win:Tab("First Tab","This is a first tab in this ui")
-local ta2b = win:Tab("Second Tab","This is a second tab in this ui")
+local tab2 = win:Tab("Second Tab","This is a second tab in this ui")
 local sec = tab:Section("Left")
-local sec2 = tab:Section("Right")
+local sec2 = tab2:Section("Right")
 
 sec:Label("Example Label")
 
@@ -1156,15 +1156,15 @@ local DropTable = {
     1;2;3;
 }
 
-local Drop = sec:Dropdown("Dropdown",3,false,DropTable,function(value)
+local Drop = sec2:Dropdown("Dropdown",3,false,DropTable,function(value)
 
 end)
 
-sec:Button("Clear",function()
+sec2:Button("Clear",function()
     Drop:Clear()
 end)
 
-sec:Button("Add",function()
+sec2:Button("Add",function()
     for i,v in next,DropTable do
         Drop:Add(v)
     end
@@ -1176,10 +1176,10 @@ MultiTest = {
 
 _G.Multi = {5;3;2}
 
-local Drop = sec:Dropdown("Multi Dropdown",_G.Multi,true,MultiTest,function(value)
+local Drop = sec2:Dropdown("Multi Dropdown",_G.Multi,true,MultiTest,function(value)
     _G.Multi = value
 end)
 
-sec:Button("Show Multi",function()
+sec2:Button("Show Multi",function()
     print(unpack(_G.Multi))
 end)
