@@ -891,7 +891,103 @@ function lib:Window(name,description)
                         ItemButton.BackgroundTransparency = 0
                         Check.ImageTransparency = 0.25
                     end
+
                 end
+                for i,v in next,option do
+                    count = count + 1
+                    if count == 1 then
+                        DropSize = 25
+                    elseif count == 2 then
+                        DropSize = 50
+                    elseif count == 3 then
+                        DropSize = 75
+                    elseif count > 3 then
+                        DropSize = 100
+                    end
+    
+                    local ItemButton = Instance.new("TextButton")
+                    ItemButton.Name = "ItemButton"
+                    ItemButton.Parent = Items
+                    ItemButton.BackgroundColor3 = Color3.fromRGB(225, 225, 225)
+                    ItemButton.BackgroundTransparency = 0
+                    ItemButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                    ItemButton.BorderSizePixel = 0
+                    ItemButton.Size = UDim2.new(1, 0, 0, 25)
+                    ItemButton.AutoButtonColor = false
+                    ItemButton.Font = Enum.Font.GothamMedium
+                    ItemButton.Text = tostring(v)
+                    ItemButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+                    ItemButton.TextSize = 11.000
+                    ItemButton.TextTransparency = 0.250
+                    ItemButton.TextXAlignment = Enum.TextXAlignment.Left
+
+                    local Check = Instance.new("ImageLabel")
+                    Check.Name = "Check"
+                    Check.Parent = ItemButton
+                    Check.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                    Check.BackgroundTransparency = 1.000
+                    Check.BorderColor3 = Color3.fromRGB(0, 0, 0)
+                    Check.BorderSizePixel = 0
+                    Check.Position = UDim2.new(1, -21, 0, 4)
+                    Check.Size = UDim2.new(0, 17, 0, 17)
+                    Check.Image = "rbxassetid://6031094667"
+                    Check.ImageColor3 = Color3.fromRGB(0, 0, 0)
+                    Check.ImageTransparency = 1
+                    
+                    local UIPadding_4 = Instance.new("UIPadding")
+                    UIPadding_4.Parent = ItemButton
+                    UIPadding_4.PaddingLeft = UDim.new(0, 10)
+
+                    Items.CanvasSize = UDim2.new(0,0,0,UIListLayout_3.AbsoluteContentSize.Y)
+
+                    ItemButton.MouseButton1Click:Connect(function()
+                        if multi then
+                            if drop:isSelected(tostring(v)) then
+                                for i2, v2 in pairs(drop.values) do
+                                    if v2 == v then
+                                        table.remove(drop.values, i2)
+                                    end
+                                end
+                                drop:Set(drop.values)
+                            else
+                                table.insert(drop.values, v)
+                                drop:Set(drop.values)
+                            end
+                            return
+                        end
+                        drop:Set(v)
+                        return
+                    end)
+                    if multi and drop:isSelected(v) or drop.values[1] == v then
+                        ItemButton.BackgroundTransparency = 0.25
+                        Check.ImageTransparency = 1
+                    else
+                        ItemButton.BackgroundTransparency = 0
+                        Check.ImageTransparency = 0.25
+                    end
+                end
+                DropFrame.MouseButton1Click:Connect(function()
+                    if dropclicked == false then
+                        Dropdown.Size = UDim2.new(1,-10,0,DropSize)
+                        DropImage.Rotation = -180
+                    else
+                        Dropdown.Size = UDim2.new(1,-10,0,25)
+                        DropImage.Rotation = 0
+                        --[[TweenService:Create(
+                            Dropdown,
+                            TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+                            {Size = UDim2.new(1,-5,0,23)}
+                        ):Play()
+                        TweenService:Create(
+                            ImageLabel,
+                            TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+                            {Rotation = 0}
+                        ):Play()]]
+                    end
+                    DropScroll.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y)
+                    dropclicked = not dropclicked
+                end)
+
             end
             function main:Slider(text,min,max,set,callback)
                 if tonumber(set) > tonumber(max) then
@@ -1090,7 +1186,7 @@ function lib:Window(name,description)
                 TextboxTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextboxTitle.BorderSizePixel = 0
                 TextboxTitle.Position = UDim2.new(0, 10, 0, 0)
-                TextboxTitle.Size = UDim2.new(1, -30, 1, 0)
+                TextboxTitle.Size = UDim2.new(1, -65, 1, 0)
                 TextboxTitle.Font = Enum.Font.GothamMedium
                 TextboxTitle.Text = text
                 TextboxTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -1132,7 +1228,7 @@ local win = lib:Window("Maru Hub","New UI Version")
 local tab = win:Tab("First Tab","This is a first tab in this ui")
 local tab2 = win:Tab("Second Tab","This is a second tab in this ui")
 local sec = tab:Section("Left")
-local sec2 = tab2:Section("Right")
+local sec2 = tab:Section("Right")
 
 sec:Label("Example Label")
 
