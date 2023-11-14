@@ -1238,8 +1238,8 @@ function lib:Window(name,description)
 end
 
 local win = lib:Window("Maru Hub","New UI Version")
-local tab = win:Tab("First Tab","This is a first tab in this ui")
-local tab2 = win:Tab("Second Tab","This is a second tab in this ui")
+local tab = win:Tab("First Tab","This is a first tab in this ui",6034837807)
+local tab2 = win:Tab("Second Tab","This is a second tab in this ui",6034837807)
 local sec = tab:Section("Left")
 local sec2 = tab:Section("Right")
 
