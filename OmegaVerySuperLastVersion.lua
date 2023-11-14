@@ -984,7 +984,7 @@ function lib:Window(name,description)
                             {Rotation = 0}
                         ):Play()]]
                     end
-                    DropScroll.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y)
+                    Items.CanvasSize = UDim2.new(0,0,0,UIListLayout_3.AbsoluteContentSize.Y)
                     dropclicked = not dropclicked
                 end)
 
@@ -1186,13 +1186,14 @@ function lib:Window(name,description)
                 TextboxTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 TextboxTitle.BorderSizePixel = 0
                 TextboxTitle.Position = UDim2.new(0, 10, 0, 0)
-                TextboxTitle.Size = UDim2.new(1, -65, 1, 0)
+                TextboxTitle.Size = UDim2.new(0, 82, 0, 25)
                 TextboxTitle.Font = Enum.Font.GothamMedium
                 TextboxTitle.Text = text
                 TextboxTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
                 TextboxTitle.TextSize = 10.000
                 TextboxTitle.TextTransparency = 0.250
                 TextboxTitle.TextXAlignment = Enum.TextXAlignment.Left
+                TextboxTitle.ClipsDescendants = true
                 
                 local TextBox = Instance.new("TextBox")
                 TextBox.Parent = Textbox
