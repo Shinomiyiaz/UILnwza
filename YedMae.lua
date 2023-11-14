@@ -726,7 +726,7 @@ function lib:Window(name,description)
                 DropTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 DropTitle.BorderSizePixel = 0
                 DropTitle.Position = UDim2.new(0, 10, 0, 0)
-                DropTitle.Size = UDim2.new(1, -30, 1, 0)
+                DropTitle.Size = UDim2.new(1, -35, 1, 0)
                 DropTitle.Font = Enum.Font.GothamMedium
                 DropTitle.Text = text
                 DropTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -806,7 +806,7 @@ function lib:Window(name,description)
                         DropTitle.Text = text.." : ".."N/A"
                     end
                     Dropdown.Size = UDim2.new(1,-10,0,25)
-                    Items.Size = UDim2.new(1,-10,0,25)
+                    Items.Size = UDim2.new(1,0,0,25)
                     TweenService:Create(
                         DropImage,
                         TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -883,6 +883,9 @@ function lib:Window(name,description)
                             return
                         end
                         drop:Set(vv)
+                        return
+                    end)
+                    game:GetService("RunService").Stepped:Connect(function()
                         if multi and drop:isSelected(vv) or drop.values[1] == vv then
                             ItemButton.BackgroundTransparency = 0.25
                             ItemButton.BackgroundColor3 = Color3.fromRGB(225,225,255)
@@ -892,7 +895,6 @@ function lib:Window(name,description)
                             ItemButton.BackgroundTransparency = 0
                             Check.ImageTransparency = 0.25
                         end
-                        return
                     end)
                 end
                 for i,v in next,option do
@@ -967,6 +969,17 @@ function lib:Window(name,description)
                             Check.ImageTransparency = 0.25
                         end
                         return
+                    end)
+                    game:GetService("RunService").Stepped:Connect(function()
+                        if multi and drop:isSelected(v) or drop.values[1] == v then
+                            ItemButton.BackgroundTransparency = 0.25
+                            ItemButton.BackgroundColor3 = Color3.fromRGB(225,225,255)
+                            Check.ImageTransparency = 1
+                        else
+                            ItemButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
+                            ItemButton.BackgroundTransparency = 0
+                            Check.ImageTransparency = 0.25
+                        end
                     end)
                 end
                 DropFrame.MouseButton1Click:Connect(function()
@@ -1220,6 +1233,7 @@ function lib:Window(name,description)
                 TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
                 TextBox.TextSize = 9.000
                 TextBox.TextTransparency = 0.250
+                TextBox.ClipsDescendants = true
                 
                 local UICorner_17 = Instance.new("UICorner")
                 UICorner_17.CornerRadius = UDim.new(0, 5)
