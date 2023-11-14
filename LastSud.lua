@@ -835,7 +835,7 @@ function lib:Window(name,description)
                     local ItemButton = Instance.new("TextButton")
                     ItemButton.Name = "ItemButton"
                     ItemButton.Parent = Items
-                    ItemButton.BackgroundColor3 = Color3.fromRGB(225, 225, 225)
+                    ItemButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                     ItemButton.BackgroundTransparency = 0
                     ItemButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
                     ItemButton.BorderSizePixel = 0
@@ -885,8 +885,10 @@ function lib:Window(name,description)
                         drop:Set(vv)
                         if multi and drop:isSelected(vv) or drop.values[1] == vv then
                             ItemButton.BackgroundTransparency = 0.25
+                            ItemButton.BackgroundColor3 = Color3.fromRGB(225,225,255)
                             Check.ImageTransparency = 1
                         else
+                            ItemButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
                             ItemButton.BackgroundTransparency = 0
                             Check.ImageTransparency = 0.25
                         end
@@ -905,10 +907,11 @@ function lib:Window(name,description)
                         DropSize = 100
                     end
     
+                    Items.Size = UDim2.new(1,0,0,DropSize)
                     local ItemButton = Instance.new("TextButton")
                     ItemButton.Name = "ItemButton"
                     ItemButton.Parent = Items
-                    ItemButton.BackgroundColor3 = Color3.fromRGB(225, 225, 225)
+                    ItemButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                     ItemButton.BackgroundTransparency = 0
                     ItemButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
                     ItemButton.BorderSizePixel = 0
@@ -939,7 +942,6 @@ function lib:Window(name,description)
                     UIPadding_4.PaddingLeft = UDim.new(0, 10)
 
                     Items.CanvasSize = UDim2.new(0,0,0,UIListLayout_3.AbsoluteContentSize.Y)
-                    Items.Size = UDim2.new(1,-10,0,DropSize)
 
                     ItemButton.MouseButton1Click:Connect(function()
                         if multi then
