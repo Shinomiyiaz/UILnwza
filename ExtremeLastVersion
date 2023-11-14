@@ -969,10 +969,18 @@ function lib:Window(name,description)
                 DropFrame.MouseButton1Click:Connect(function()
                     if dropclicked == false then
                         Dropdown.Size = UDim2.new(1,-10,0,DropSize)
-                        DropImage.Rotation = -180
+                        TweenService:Create(
+                            DropImage,
+                            TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+                            {Rotation = -180}
+                        ):Play()
                     else
                         Dropdown.Size = UDim2.new(1,-10,0,25)
-                        DropImage.Rotation = 0
+                        TweenService:Create(
+                            DropImage,
+                            TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+                            {Rotation = 0}
+                        ):Play()
                         --[[TweenService:Create(
                             Dropdown,
                             TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
