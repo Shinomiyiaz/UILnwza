@@ -748,7 +748,7 @@ function lib:Window(name,description)
                 DropImage.ImageColor3 = Color3.fromRGB(0, 0, 0)
                 DropImage.ImageTransparency = 0.250
 
-                local Items = Instance.new("SrollingFrame")
+                local Items = Instance.new("ScrollingFrame")
                 Items.Name = "Items"
                 Items.Parent = Dropdown
                 Items.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -921,12 +921,12 @@ function lib:Window(name,description)
                 SlideTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
                 SlideTitle.BorderSizePixel = 0
                 SlideTitle.Position = UDim2.new(0, 10, 0, 0)
-                SlideTitle.Size = UDim2.new(1, -40, 0, 25)
+                SlideTitle.Size = UDim2.new(1, -65, 0, 25)
                 SlideTitle.Font = Enum.Font.GothamMedium
                 SlideTitle.Text = text
                 SlideTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
                 SlideTitle.TextSize = 10.000
-                SlideTitle.TextTransparency = 0.200
+                SlideTitle.TextTransparency = 0.25
                 SlideTitle.TextWrapped = true
                 SlideTitle.ClipsDescendants = true
                 SlideTitle.TextXAlignment = Enum.TextXAlignment.Left
